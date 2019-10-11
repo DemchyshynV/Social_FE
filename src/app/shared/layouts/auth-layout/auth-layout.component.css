@@ -1,0 +1,14 @@
+.nav{
+  justify-content: space-between;
+}
+span{
+  padding-right: 1rem;
+}
+.active{
+  background: white;
+  color: blue;
+
+}
+button{
+
+}

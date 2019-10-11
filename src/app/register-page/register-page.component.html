@@ -1,0 +1,61 @@
+<mat-card class="registerForm">
+  <mat-card-title>Register</mat-card-title>
+
+  <mat-card-content fxLayoutAlign="center center">
+    <form [formGroup]="form">
+      <div fxLayout="column">
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" email required formControlName="email">
+        </mat-form-field>
+
+        <div formGroupName="passwords" fxLayout="column">
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" required formControlName="password1">
+            <mat-error>Min 6 characters</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Password again</mat-label>
+            <input matInput type="password" required [errorStateMatcher]="matcher" formControlName="password2">
+            <mat-error *ngIf="(form.hasError('notSame', 'passwords'))">The password and confirm password
+              fields do not
+              match.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+      </div>
+      <div fxLayout="row" fxLayout.lt-md="column">
+        <mat-form-field appearance="outline" class="fields">
+          <mat-label>Name</mat-label>
+          <input matInput required formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="fields">
+          <mat-label>Surname</mat-label>
+          <input matInput formControlName="surname">
+        </mat-form-field>
+        <mat-form-field fxLayoutAlign="center" appearance="outline">
+          <mat-label>Age</mat-label>
+          <input matInput type="number" formControlName="age">
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline" fxLayoutAlign="center" class="fields">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="sex">
+          <mat-option *ngFor="let gender of genders" [value]="gender">
+            {{gender}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!--      </div>-->
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="register()">Register</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,11 @@
+.registerForm {
+  width: 60%;
+  margin: 5rem auto;
+}
+.fields{
+  padding-right: 4px;
+}
+mat-error{
+  text-align: end;
+}
+
