@@ -1,7 +1,7 @@
 import {Component, Injectable, OnInit} from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-// import * as bcrypt from 'bcryptjs';
+// import *  as bcrypt from 'bcryptjs';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
