@@ -1,7 +1,6 @@
 import {Component, Injectable, OnInit} from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-// import *  as bcrypt from 'bcryptjs';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
@@ -21,7 +20,6 @@ export class LoginPageComponent implements OnInit {
   constructor(private auth: AuthService,
               private route: ActivatedRoute,
               private router: Router) {
-    // this.saul = bcrypt.genSaltSync(10);
   }
 
   ngOnInit() {
@@ -36,16 +34,17 @@ export class LoginPageComponent implements OnInit {
     //     // Для начала зарегистрируйтесь в системе
     //   }
     // });
+
   }
-
-
   login(): void {
-    // console.log(this.form.get('password').value);
-    // this.form.get('password').setValue(bcrypt.hashSync(this.form.get('password').value, this.saul));
+    this.form.disable();
     console.log(this.form.value);
     this.auth.login(this.form.value).subscribe((res) => {
-      console.log(res);
+          this.router.navigate(['overview']);
     });
   }
+
+
+
 
 }

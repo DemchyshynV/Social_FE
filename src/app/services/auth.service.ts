@@ -34,6 +34,14 @@ export class AuthService {
     return this.token;
   }
 
+  getRoles(): string[] {
+    let temp = this.token.toString().substr(8);
+    let s = atob(temp.split('.')[1]);
+    let parse = JSON.parse(s);
+    let roles = parse.roles;
+    return roles;
+  }
+
   isAuthenticated(): boolean {
     return !!this.token;
   }

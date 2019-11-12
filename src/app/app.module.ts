@@ -13,6 +13,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptor} from "./shared/classes/token.interceptor";
+import { AdminLayoutComponent } from './shared/layouts/admin-layout/admin-layout.component';
+import { OverviewPageComponent } from './overview-page/overview-page.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import {TokenInterceptor} from "./shared/classes/token.interceptor";
     RegisterPageComponent,
     AuthLayoutComponent,
     SiteLayoutComponent,
+    AdminLayoutComponent,
+    OverviewPageComponent,
   ],
   imports: [
     BrowserModule,
