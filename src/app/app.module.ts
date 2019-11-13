@@ -15,6 +15,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptor} from "./shared/classes/token.interceptor";
 import { AdminLayoutComponent } from './shared/layouts/admin-layout/admin-layout.component';
 import { OverviewPageComponent } from './overview-page/overview-page.component';
+import { FriendsComponent } from './friends/friends.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { OverviewPageComponent } from './overview-page/overview-page.component';
     SiteLayoutComponent,
     AdminLayoutComponent,
     OverviewPageComponent,
+    FriendsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,26 @@
+<mat-toolbar color="primary" class="nav">
+  <div><a mat-button routerLink="/overview"><h1>MyBook</h1></a></div>
+</mat-toolbar>
 <mat-sidenav-container class="example-container">
-  <mat-sidenav mode="side" openesd>Sidenav</mat-sidenav>
+  <mat-sidenav class="sidenav" mode="side" opened>
+    <div class="avatar">
+
+    </div>
+    <div class="buttons">
+      <div>
+        <a mat-stroked-button routerLink="/massages" routerLinkActive="active">Сообщения</a>
+        <a mat-stroked-button routerLink="/friends" routerLinkActive="active">Друзья</a>
+        <a mat-stroked-button routerLink="/photos" routerLinkActive="active">Фото</a>
+        <a mat-stroked-button routerLink="/settings" routerLinkActive="active">Настройки</a>
+      </div>
+      <div class="bottom">
+        <a *ngIf="isAdmin" mat-stroked-button routerLink="/admin" routerLinkActive="active">Админка</a>
+        <a mat-stroked-button routerLink="/login" (click)="auth.logout()" routerLinkActive="active">Выход</a>
+
+      </div>
+    </div>
+  </mat-sidenav>
   <mat-sidenav-content>
-    <app-overview-page></app-overview-page>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
