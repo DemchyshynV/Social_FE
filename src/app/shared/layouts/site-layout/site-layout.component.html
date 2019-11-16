@@ -1,17 +1,18 @@
 <mat-toolbar color="primary" class="nav">
   <div><a mat-button routerLink="/overview"><h1>MyBook</h1></a></div>
 </mat-toolbar>
-<mat-sidenav-container class="example-container">
+<mat-sidenav-container class="example-container" *ngIf="profile$ | async as profile">
   <mat-sidenav class="sidenav" mode="side" opened>
     <div class="avatar">
 
     </div>
+    <div class="name">
+      {{profile.name}} {{profile.surname}}
+    </div>
     <div class="buttons">
       <div>
-        <a mat-stroked-button routerLink="/massages" routerLinkActive="active">Сообщения</a>
-        <a mat-stroked-button routerLink="/friends" routerLinkActive="active">Друзья</a>
-        <a mat-stroked-button routerLink="/photos" routerLinkActive="active">Фото</a>
-        <a mat-stroked-button routerLink="/settings" routerLinkActive="active">Настройки</a>
+        <a mat-stroked-button *ngFor="let link of links" [routerLink]="link.url" routerLinkActive="active">{{link.name}}</a>
+
       </div>
       <div class="bottom">
         <a *ngIf="isAdmin" mat-stroked-button routerLink="/admin" routerLinkActive="active">Админка</a>
