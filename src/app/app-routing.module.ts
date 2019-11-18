@@ -7,7 +7,7 @@ import {SiteLayoutComponent} from './shared/layouts/site-layout/site-layout.comp
 import {AuthGuard} from './shared/classes/auth.guard';
 import {AdminLayoutComponent} from "./shared/layouts/admin-layout/admin-layout.component";
 import {OverviewPageComponent} from "./overview-page/overview-page.component";
-import {FriendsComponent} from "./friends/friends.component";
+import {FriendsPageComponent} from "./friends-page/friends-page.component";
 
 
 const routes: Routes = [
@@ -21,7 +21,7 @@ const routes: Routes = [
   {
     path: '', component: SiteLayoutComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard], children: [
       {path: 'overview', component: OverviewPageComponent},
-      {path: 'friends', component: FriendsComponent}
+      {path: 'friends', component: FriendsPageComponent}
 
     ]
   },

@@ -1,6 +1,8 @@
-export interface Profile {
-  id?:number;
-  name:string;
-  surname?:string;
-  img?:string;
+export interface SiteLayout {
+  avatar:string;
+  name: string;
+  surname: string;
+  massage: boolean;
+  friends: boolean;
+  isAdmin: boolean;
 }

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../services/auth.service";
 import {UserService} from "../../../services/user.service";
-import {Profile} from "../../interfaces";
 import {Observable} from "rxjs";
+import {SiteLayout} from "../../interfaces";
 
 @Component({
   selector: 'app-site-layout',
@@ -19,16 +19,13 @@ export class SiteLayoutComponent implements OnInit {
     {url:'/settings', name: 'Настройки'}
 
   ];
-  profile$: Observable<Profile>;
+  siteLayout$: Observable<SiteLayout>;
 
   constructor(private auth: AuthService, private userService: UserService) {
   }
 
   ngOnInit() {
-    for (const role of this.auth.getRoles()) {
-      if (role === 'ROLE_ADMIN')
-        this.isAdmin = true;
-    }
-    this.profile$ = this.userService.getProfile();
+
+    this.siteLayout$ = this.userService.getProfile();
   }
 }

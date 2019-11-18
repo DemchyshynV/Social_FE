@@ -1,13 +1,13 @@
 <mat-toolbar color="primary" class="nav">
   <div><a mat-button routerLink="/overview"><h1>MyBook</h1></a></div>
 </mat-toolbar>
-<mat-sidenav-container class="example-container" *ngIf="profile$ | async as profile">
+<mat-sidenav-container class="example-container" *ngIf="siteLayout$ | async as siteLayout">
   <mat-sidenav class="sidenav" mode="side" opened>
     <div class="avatar">
 
     </div>
     <div class="name">
-      {{profile.name}} {{profile.surname}}
+      {{siteLayout.name}} {{siteLayout.surname}}
     </div>
     <div class="buttons">
       <div>
