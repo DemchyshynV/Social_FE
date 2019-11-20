@@ -9,40 +9,72 @@
   right: 0;
   border: 1px solid gainsboro;
 }
-.sidenav{
+
+.sidenav {
   width: 250px;
 }
-.avatar{
+
+.avatar {
   width: 200px;
   margin: 10px auto;
   height: 250px;
-  background: red;
+  /*background: red;*/
 }
-.buttons a{
+
+.avatar:hover {
+  cursor: grab;
+}
+
+.buttons a {
   width: 230px;
   margin-bottom: 3px;
   /*background: blue;*/
 
 }
-.buttons{
+
+.buttons {
   width: 230px;
   margin: 0 auto;
   /*background: green;*/
+
 }
-.active{
+
+.blink{
+  animation: blink 3s linear infinite;
+}
+
+@keyframes blink {
+  0% {
+    color: rgba(34, 34, 34, 1);
+  }
+  50% {
+    color: rgba(34, 34, 34, 0);
+  }
+  100% {
+    color: rgba(34, 34, 34, 1);
+  }
+}
+
+.active {
   background: #3f51b5;
   color: white;
 }
-.bottom{
+
+.bottom {
   position: absolute;
   left: 10px;
   bottom: 0;
 }
-.name{
+
+.name {
   text-align: center;
   margin-bottom: 10px;
   font-family: "Monotype Corsiva", Cursive;
   font-size: 25px;
   color: #3f51b5;
 
+}
+
+.dn {
+  display: none;
 }

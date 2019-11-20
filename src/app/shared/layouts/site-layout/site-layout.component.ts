@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AuthService} from "../../../services/auth.service";
-import {UserService} from "../../../services/user.service";
 import {Observable} from "rxjs";
-import {SiteLayout} from "../../interfaces";
+import {FormControl, FormGroup} from "@angular/forms";
+import {Profile} from "../../interfaces";
+import {SiteLayoutService} from "../../../services/site-layout.service";
 
 @Component({
   selector: 'app-site-layout',
@@ -10,22 +11,49 @@ import {SiteLayout} from "../../interfaces";
   styleUrls: ['./site-layout.component.css']
 })
 export class SiteLayoutComponent implements OnInit {
-  isAdmin: boolean = false;
+  @ViewChild('input', {static: false}) inputRef: ElementRef;
+  private form: FormGroup;
+  fileData: File = null;
+  url: any = "../../../../assets/emptyAvatar.gif";
+  // url: any = '';
   links = [
-    {url:'/massages', name: 'Сообщения'},
-    {url:'/friends', name: 'Друзья'},
-    {url:'/photos', name: 'Фото'},
-    {url:'/music', name: 'Музыка'},
-    {url:'/settings', name: 'Настройки'}
+    {url: '/massages', name: 'Сообщения'},
+    {url: '/friends', name: 'Друзья'},
+    {url: '/photos', name: 'Фото'},
+    {url: '/music', name: 'Музыка'},
+    {url: '/settings', name: 'Настройки'}
 
   ];
-  siteLayout$: Observable<SiteLayout>;
+  siteLayout$: Observable<Profile>;
 
-  constructor(private auth: AuthService, private userService: UserService) {
+
+  constructor(private auth: AuthService, private siteLayoutService: SiteLayoutService) {
   }
 
   ngOnInit() {
+    this.form = new FormGroup({
+      file: new FormControl(null)
+    });
 
-    this.siteLayout$ = this.userService.getProfile();
+    this.siteLayout$ = this.siteLayoutService.getProfile();
+    // this.siteLayoutService.getProfile().subscribe(value =>{
+    //   console.log(value);
+    // })
+  }
+
+  triggerClick() {
+    this.inputRef.nativeElement.click();
+
+  }
+
+  onFileUpload(inputFile: any) {
+    this.fileData = inputFile.target.files[0];
+    let reader = new FileReader();
+    reader.readAsDataURL(this.fileData);
+    reader.onload = () => {
+      // this.url = '';
+      this.url = reader.result;
+    };
+    this.siteLayoutService.setAvatar(this.fileData).subscribe();
   }
 }

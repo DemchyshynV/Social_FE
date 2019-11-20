@@ -35,10 +35,11 @@ export class RegisterPageComponent implements OnInit {
         password1: new FormControl(null, [Validators.required, Validators.minLength(6)]),
         password2: new FormControl(null, [Validators.required])
       }, this.passwordValidator),
+      profile: new FormGroup({
       name: new FormControl(null, [Validators.required]),
       surname: new FormControl(),
       age: new FormControl(null, [Validators.required]),
-      sex: new FormControl(null, [Validators.required])
+      sex: new FormControl(null, [Validators.required])})
     });
     // });
 

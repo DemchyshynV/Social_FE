@@ -4,18 +4,25 @@
 <mat-sidenav-container class="example-container" *ngIf="siteLayout$ | async as siteLayout">
   <mat-sidenav class="sidenav" mode="side" opened>
     <div class="avatar">
-
+      <form [formGroup]="form" enctype="multipart/form-data">
+        <input type="file" class="dn" #input formControlName="file" (change)="onFileUpload($event)">
+        <img [src]="url" (click)="triggerClick()" width="200px" height="250px"
+             *ngIf="!siteLayout.avatar; else avatar">
+      </form>
+      <ng-template #avatar>
+        <img [src]="siteLayout.avatar" width="200px" height="250px">
+      </ng-template>
     </div>
     <div class="name">
       {{siteLayout.name}} {{siteLayout.surname}}
     </div>
     <div class="buttons">
       <div>
-        <a mat-stroked-button *ngFor="let link of links" [routerLink]="link.url" routerLinkActive="active">{{link.name}}</a>
-
+        <a mat-stroked-button *ngFor="let link of links" [routerLink]="link.url"
+           routerLinkActive="active">{{link.name}}</a>
       </div>
       <div class="bottom">
-        <a *ngIf="isAdmin" mat-stroked-button routerLink="/admin" routerLinkActive="active">Админка</a>
+        <a *ngIf="siteLayout.admin" mat-stroked-button routerLink="/admin" routerLinkActive="active">Админка</a>
         <a mat-stroked-button routerLink="/login" (click)="auth.logout()" routerLinkActive="active">Выход</a>
 
       </div>

@@ -1,8 +1,8 @@
-export interface SiteLayout {
+export interface Profile {
   avatar:string;
   name: string;
   surname: string;
   massage: boolean;
   friends: boolean;
-  isAdmin: boolean;
+  admin: boolean;
 }
