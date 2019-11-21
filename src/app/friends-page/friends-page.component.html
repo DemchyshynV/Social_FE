@@ -1,1 +1,12 @@
-<p>friends-page works!</p>
+<div *ngIf="friends$| async as friends">
+  <mat-card *ngFor="let friend of friends" class="list">
+    <div class="profile">
+      <img [src]="friend.avatar" *ngIf="friend.avatar else blank">
+      <div class="name">{{friend.name}} {{friend.surname}}</div>
+    </div>
+    <div class="buttons"></div>
+    <ng-template #blank>
+      <img [src]="avatarBlank">
+    </ng-template>
+  </mat-card>
+</div>

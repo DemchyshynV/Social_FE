@@ -18,6 +18,8 @@
     </div>
     <div class="buttons">
       <div>
+        <a mat-stroked-button routerLink="/massages" routerLinkActive="active" [ngClass]="{blink: siteLayout.massages&&massageFlag}" (click)="massageFlag=false" >Сообщения</a>
+        <a mat-stroked-button routerLink="/friends" routerLinkActive="active" [ngClass]="{blink: siteLayout.friends&&friendFlag}" (click)="friendFlag=false">Друзья</a>
         <a mat-stroked-button *ngFor="let link of links" [routerLink]="link.url"
            routerLinkActive="active">{{link.name}}</a>
       </div>

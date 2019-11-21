@@ -14,17 +14,18 @@ export class SiteLayoutComponent implements OnInit {
   @ViewChild('input', {static: false}) inputRef: ElementRef;
   private form: FormGroup;
   fileData: File = null;
-  url: any = "../../../../assets/emptyAvatar.gif";
+  url: any = "../../../../assets/addAvatar.gif";
   // url: any = '';
+  // siteLayout$: Observable<Profile>;
+  siteLayout$: Observable<Profile>;
   links = [
-    {url: '/massages', name: 'Сообщения'},
-    {url: '/friends', name: 'Друзья'},
-    {url: '/photos', name: 'Фото'},
-    {url: '/music', name: 'Музыка'},
-    {url: '/settings', name: 'Настройки'}
+    {url: '/photos', name: 'Фото', notify: ''},
+    {url: '/music', name: 'Музыка', notify: ''},
+    {url: '/settings', name: 'Настройки', notify: ''}
 
   ];
-  siteLayout$: Observable<Profile>;
+  massageFlag: boolean = true;
+  friendFlag: boolean = true;
 
 
   constructor(private auth: AuthService, private siteLayoutService: SiteLayoutService) {
@@ -35,10 +36,8 @@ export class SiteLayoutComponent implements OnInit {
       file: new FormControl(null)
     });
 
-    this.siteLayout$ = this.siteLayoutService.getProfile();
-    // this.siteLayoutService.getProfile().subscribe(value =>{
-    //   console.log(value);
-    // })
+    // this.siteLayout$ = this.siteLayoutService.getProfile();
+    this.siteLayout$= this.siteLayoutService.getProfile();
   }
 
   triggerClick() {
@@ -51,7 +50,6 @@ export class SiteLayoutComponent implements OnInit {
     let reader = new FileReader();
     reader.readAsDataURL(this.fileData);
     reader.onload = () => {
-      // this.url = '';
       this.url = reader.result;
     };
     this.siteLayoutService.setAvatar(this.fileData).subscribe();

@@ -1,8 +1,16 @@
 export interface Profile {
-  avatar:string;
+  avatar: string;
   name: string;
   surname: string;
-  massage: boolean;
-  friends: boolean;
   admin: boolean;
+  massages: boolean;
+  friends: boolean;
+}
+
+export interface Friends {
+  id: bigint;
+  avatar?: string;
+  name: string;
+  surname: string;
+
 }
