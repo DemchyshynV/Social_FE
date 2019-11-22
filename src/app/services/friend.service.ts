@@ -12,5 +12,14 @@ export class FriendService {
   find():Observable<Friends[]>{
     return this.http.get<Friends[]>('/api/friends/find');
   }
+  save(id:bigint):Observable<any>{
+    return this.http.post<any>('/api/friends/save', id);
+  }
+  myFriends():Observable<Friends[]>{
+    return this.http.get<Friends[]>('/api/friends/myFriends');
+  }
+  del(id: bigint):Observable<any>{
+    return this.http.post<any>('/api/friends/del', id);
+  }
 
 }

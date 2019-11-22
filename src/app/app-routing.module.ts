@@ -8,30 +8,40 @@ import {AuthGuard} from './shared/classes/auth.guard';
 import {AdminLayoutComponent} from "./shared/layouts/admin-layout/admin-layout.component";
 import {OverviewPageComponent} from "./overview-page/overview-page.component";
 import {FriendsPageComponent} from "./friends-page/friends-page.component";
+import {TopComponent} from "./friends-page/top/top.component";
+import {MyFriendsComponent} from "./friends-page/top/my-friends/my-friends.component";
+import {FindFriendsComponent} from "./friends-page/top/find-friends/find-friends.component";
 
 
 const routes: Routes = [
-  {
-    path: '', component: AuthLayoutComponent, children: [
-      {path: '', redirectTo: '/login', pathMatch: 'full'},
-      {path: 'login', component: LoginPageComponent},
-      {path: 'register', component: RegisterPageComponent}
-    ]
-  },
-  {
-    path: '', component: SiteLayoutComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard], children: [
-      {path: 'overview', component: OverviewPageComponent},
-      {path: 'friends', component: FriendsPageComponent}
+    {
+      path: '', component: AuthLayoutComponent, children: [
+        {path: '', redirectTo: '/login', pathMatch: 'full'},
+        {path: 'login', component: LoginPageComponent},
+        {path: 'register', component: RegisterPageComponent}
+      ]
+    },
+    {
+      path: '', component: SiteLayoutComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard], children: [
+        {path: 'overview', component: OverviewPageComponent},
+        {path: 'friends', component: FriendsPageComponent, children:[
+            {path:'', component: TopComponent, children:[
+                {path:'', redirectTo:'myFriends', pathMatch: 'full'},
+                {path: 'myFriends', component: MyFriendsComponent},
+                {path: 'findFriends', component: FindFriendsComponent}
+              ]}
+          ]}
+      ]
+    },
+    {
+      path: '', component:
+      AdminLayoutComponent, canActivate:
+        [AuthGuard], children:
+        []
+    }
 
-    ]
-  },
-  {
-    path: '', component: AdminLayoutComponent, canActivate: [AuthGuard], children: [
-
-    ]
-  }
-
-];
+  ]
+;
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

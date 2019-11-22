@@ -7,7 +7,7 @@ import {Profile} from "../shared/interfaces";
   providedIn: 'root'
 })
 export class SiteLayoutService {
-
+  avatarBlank: string = "../../../../assets/blankAvatar.gif";
   constructor(private http: HttpClient) {
   }
 

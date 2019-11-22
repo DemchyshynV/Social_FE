@@ -16,6 +16,9 @@ import {TokenInterceptor} from "./shared/classes/token.interceptor";
 import { AdminLayoutComponent } from './shared/layouts/admin-layout/admin-layout.component';
 import { OverviewPageComponent } from './overview-page/overview-page.component';
 import { FriendsPageComponent } from './friends-page/friends-page.component';
+import { TopComponent } from './friends-page/top/top.component';
+import {MyFriendsComponent} from "./friends-page/top/my-friends/my-friends.component";
+import { FindFriendsComponent } from './friends-page/top/find-friends/find-friends.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { FriendsPageComponent } from './friends-page/friends-page.component';
     AdminLayoutComponent,
     OverviewPageComponent,
     FriendsPageComponent,
+    TopComponent,
+    MyFriendsComponent,
+    FindFriendsComponent,
   ],
   imports: [
     BrowserModule,

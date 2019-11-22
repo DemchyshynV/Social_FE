@@ -1,0 +1,15 @@
+<!--<div *ngIf="friends$| async as friends" >-->
+<div *ngIf="friends" >
+  <mat-card *ngFor="let friend of friends" class="list">
+    <div class="profile">
+      <img [src]="friend.avatar" *ngIf="friend.avatar else blank">
+      <div class="name">{{friend.name}} {{friend.surname}}</div>
+    </div>
+    <div class="buttons">
+      <button mat-raised-button (click)="del(friend)">Удалить из друзей</button>
+    </div>
+    <ng-template #blank>
+      <img [src]="siteLayoutService.avatarBlank">
+    </ng-template>
+  </mat-card>
+</div>

@@ -1,0 +1,18 @@
+.list img{
+  width: 40px;
+  height: 50px;
+}
+.list{
+  display: flex;
+  padding: 5px;
+  justify-content: space-between;
+  align-items: center;
+}
+.profile{
+  display: flex;
+  align-items: center;
+}
+.name{
+  margin-left: 10px;
+}
+
