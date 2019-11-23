@@ -1,7 +1,5 @@
 <mat-toolbar color="primary" class="nav">
-  <div><a mat-button *ngFor="let link of links" [routerLink]="link.url" routerLinkActive="active">{{link.name}}</a> </div>
+  <div><a mat-button *ngFor="let link of links" [routerLink]="link.url" routerLinkActive="active">{{link.name}}</a>
+  </div>
 </mat-toolbar>
-<div>
-
 <router-outlet></router-outlet>
-</div>

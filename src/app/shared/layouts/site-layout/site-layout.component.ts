@@ -43,6 +43,7 @@ export class SiteLayoutComponent implements OnInit {
   triggerClick() {
     this.inputRef.nativeElement.click();
 
+
   }
 
   onFileUpload(inputFile: any) {
@@ -52,6 +53,6 @@ export class SiteLayoutComponent implements OnInit {
     reader.onload = () => {
       this.url = reader.result;
     };
-    this.siteLayoutService.setAvatar(this.fileData).subscribe();
+    this.siteLayoutService.setAvatar(this.fileData).subscribe(()=> this.form.controls.file.disable());
   }
 }

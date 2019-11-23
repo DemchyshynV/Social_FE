@@ -19,6 +19,9 @@ import { FriendsPageComponent } from './friends-page/friends-page.component';
 import { TopComponent } from './friends-page/top/top.component';
 import {MyFriendsComponent} from "./friends-page/top/my-friends/my-friends.component";
 import { FindFriendsComponent } from './friends-page/top/find-friends/find-friends.component';
+import { LoaderComponent } from './shared/components/loader/loader.component';
+import { MyRequestsComponent } from './friends-page/top/my-requests/my-requests.component';
+import { FriendsRequestComponent } from './friends-page/top/friends-request/friends-request.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { FindFriendsComponent } from './friends-page/top/find-friends/find-frien
     TopComponent,
     MyFriendsComponent,
     FindFriendsComponent,
+    LoaderComponent,
+    MyRequestsComponent,
+    FriendsRequestComponent,
   ],
   imports: [
     BrowserModule,

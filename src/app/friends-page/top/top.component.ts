@@ -9,8 +9,8 @@ export class TopComponent implements OnInit {
 links = [
   {url: '/friends/myFriends', name: 'Мои Друзья'},
   {url: '/friends/findFriends', name: 'Найти Друзей'},
-  {url: '/friends/myRequest', name: 'Мои запросы'},
-  {url: '/friends/myRequestFriends', name: 'Хочет быть другом'}
+  {url: '/friends/myRequests', name: 'Мои запросы'},
+  {url: '/friends/friendsRequest', name: 'Хочет быть другом'}
 ];
   constructor() { }
 

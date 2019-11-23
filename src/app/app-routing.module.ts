@@ -11,6 +11,8 @@ import {FriendsPageComponent} from "./friends-page/friends-page.component";
 import {TopComponent} from "./friends-page/top/top.component";
 import {MyFriendsComponent} from "./friends-page/top/my-friends/my-friends.component";
 import {FindFriendsComponent} from "./friends-page/top/find-friends/find-friends.component";
+import {MyRequestsComponent} from "./friends-page/top/my-requests/my-requests.component";
+import {FriendsRequestComponent} from "./friends-page/top/friends-request/friends-request.component";
 
 
 const routes: Routes = [
@@ -24,11 +26,13 @@ const routes: Routes = [
     {
       path: '', component: SiteLayoutComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard], children: [
         {path: 'overview', component: OverviewPageComponent},
-        {path: 'friends', component: FriendsPageComponent, children:[
+        {path: 'friends', component: FriendsPageComponent,  children:[
             {path:'', component: TopComponent, children:[
                 {path:'', redirectTo:'myFriends', pathMatch: 'full'},
                 {path: 'myFriends', component: MyFriendsComponent},
-                {path: 'findFriends', component: FindFriendsComponent}
+                {path: 'findFriends', component: FindFriendsComponent},
+                {path: 'myRequests', component: MyRequestsComponent},
+                {path: 'friendsRequest', component: FriendsRequestComponent}
               ]}
           ]}
       ]

@@ -9,8 +9,8 @@ import {Friends} from "../shared/interfaces";
 export class FriendService {
 
   constructor(private http: HttpClient) { }
-  find():Observable<Friends[]>{
-    return this.http.get<Friends[]>('/api/friends/find');
+  findFriends():Observable<Friends[]>{
+    return this.http.get<Friends[]>('/api/friends/findFriends');
   }
   save(id:bigint):Observable<any>{
     return this.http.post<any>('/api/friends/save', id);
@@ -19,7 +19,15 @@ export class FriendService {
     return this.http.get<Friends[]>('/api/friends/myFriends');
   }
   del(id: bigint):Observable<any>{
-    return this.http.post<any>('/api/friends/del', id);
+    return this.http.delete<any>('/api/friends/del/' + id);
   }
 
+  myRequests():Observable<Friends[]> {
+    return this.http.get<Friends[]>('/api/friends/myRequests');
+  }
+
+  friendsRequest():Observable<Friends[]> {
+    return this.http.get<Friends[]>('/api/friends/friendsRequest');
+    
+  }
 }

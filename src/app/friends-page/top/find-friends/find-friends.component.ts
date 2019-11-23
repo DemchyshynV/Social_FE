@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FriendService} from "../../../services/friend.service";
-import {Observable} from "rxjs";
 import {Friends} from "../../../shared/interfaces";
 import {SiteLayoutService} from "../../../services/site-layout.service";
 
@@ -10,13 +9,16 @@ import {SiteLayoutService} from "../../../services/site-layout.service";
   styleUrls: ['./find-friends.component.css']
 })
 export class FindFriendsComponent implements OnInit {
-friends$:Observable<Friends[]>;
+// friends$:Observable<Friends[]>;
+  friends:Friends[];
   constructor(private friendService:FriendService, private siteLayoutService:SiteLayoutService) { }
 
   ngOnInit() {
-    this.friends$ = this.friendService.find();
+    // this.friends$ = this.friendService.find();
+    this.friendService.findFriends().subscribe(value => this.friends = value)
   }
-  save(id:bigint){
-    this.friendService.save(id).subscribe();
+  save(friend:Friends){
+    this.friendService.save(friend.id).subscribe();
+    this.friends.splice(this.friends.indexOf(friend), 1)
   }
 }

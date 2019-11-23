@@ -1,5 +1,5 @@
 <!--<div *ngIf="friends$| async as friends" >-->
-<div *ngIf="friends" >
+<div *ngIf="friends; else loader" >
   <mat-card *ngFor="let friend of friends" class="list">
     <div class="profile">
       <img [src]="friend.avatar" *ngIf="friend.avatar else blank">
@@ -13,3 +13,6 @@
     </ng-template>
   </mat-card>
 </div>
+<ng-template #loader >
+  <app-loader></app-loader>
+</ng-template>
