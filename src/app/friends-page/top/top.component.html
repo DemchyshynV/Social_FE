@@ -2,4 +2,9 @@
   <div><a mat-button *ngFor="let link of links" [routerLink]="link.url" routerLinkActive="active">{{link.name}}</a>
   </div>
 </mat-toolbar>
-<router-outlet></router-outlet>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

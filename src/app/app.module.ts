@@ -1,27 +1,28 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { RegisterPageComponent } from './register-page/register-page.component';
-import { AuthLayoutComponent } from './shared/layouts/auth-layout/auth-layout.component';
-import { SiteLayoutComponent } from './shared/layouts/site-layout/site-layout.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {LoginPageComponent} from './login-page/login-page.component';
+import {RegisterPageComponent} from './register-page/register-page.component';
+import {AuthLayoutComponent} from './shared/layouts/auth-layout/auth-layout.component';
+import {SiteLayoutComponent} from './shared/layouts/site-layout/site-layout.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from "./material/material.module";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptor} from "./shared/classes/token.interceptor";
-import { AdminLayoutComponent } from './shared/layouts/admin-layout/admin-layout.component';
-import { OverviewPageComponent } from './overview-page/overview-page.component';
-import { FriendsPageComponent } from './friends-page/friends-page.component';
-import { TopComponent } from './friends-page/top/top.component';
+import {AdminLayoutComponent} from './shared/layouts/admin-layout/admin-layout.component';
+import {OverviewPageComponent} from './overview-page/overview-page.component';
+import {FriendsPageComponent} from './friends-page/friends-page.component';
+import {TopComponent} from './friends-page/top/top.component';
 import {MyFriendsComponent} from "./friends-page/top/my-friends/my-friends.component";
-import { FindFriendsComponent } from './friends-page/top/find-friends/find-friends.component';
-import { LoaderComponent } from './shared/components/loader/loader.component';
-import { MyRequestsComponent } from './friends-page/top/my-requests/my-requests.component';
-import { FriendsRequestComponent } from './friends-page/top/friends-request/friends-request.component';
+import {FindFriendsComponent} from './friends-page/top/find-friends/find-friends.component';
+import {LoaderComponent} from './shared/components/loader/loader.component';
+import {MyRequestsComponent} from './friends-page/top/my-requests/my-requests.component';
+import {FriendsRequestComponent} from './friends-page/top/friends-request/friends-request.component';
+import {MassagePageComponent} from './massage-page/massage-page.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FriendsRequestComponent } from './friends-page/top/friends-request/frie
     LoaderComponent,
     MyRequestsComponent,
     FriendsRequestComponent,
+    MassagePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,4 +62,5 @@ import { FriendsRequestComponent } from './friends-page/top/friends-request/frie
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

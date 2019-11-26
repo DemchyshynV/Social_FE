@@ -1,5 +1,5 @@
-<mat-card class="logingorm">
-  <mat-card-title>Login</mat-card-title>
+<mat-card class="loginForm">
+  <mat-card-title>Авторизация</mat-card-title>
   <mat-card-content xLayout="row" fxLayoutAlign="center center">
     <form [formGroup]="form">
       <mat-form-field appearance="outline">
@@ -7,13 +7,14 @@
         <input matInput type="email" required formControlName="email" fxLayout="row">
       </mat-form-field>
       <mat-form-field appearance="outline" fxLayout="row">
-        <mat-label>Password</mat-label>
+        <mat-label>Пароль</mat-label>
         <input matInput type="password" required formControlName="password">
       </mat-form-field>
     </form>
   </mat-card-content>
   <mat-card-actions align="end">
-    <button mat-raised-button  [disabled]="form.invalid" (click)="login()" color="primary">Login</button>
+    <button mat-raised-button  [disabled]="form.invalid" (click)="login()" color="primary">Вход</button>
   </mat-card-actions>
 </mat-card>
+
 

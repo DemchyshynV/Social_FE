@@ -13,6 +13,7 @@ import {MyFriendsComponent} from "./friends-page/top/my-friends/my-friends.compo
 import {FindFriendsComponent} from "./friends-page/top/find-friends/find-friends.component";
 import {MyRequestsComponent} from "./friends-page/top/my-requests/my-requests.component";
 import {FriendsRequestComponent} from "./friends-page/top/friends-request/friends-request.component";
+import {MassagePageComponent} from "./massage-page/massage-page.component";
 
 
 const routes: Routes = [
@@ -34,7 +35,8 @@ const routes: Routes = [
                 {path: 'myRequests', component: MyRequestsComponent},
                 {path: 'friendsRequest', component: FriendsRequestComponent}
               ]}
-          ]}
+          ]},
+        {path: 'massages', component: MassagePageComponent}
       ]
     },
     {

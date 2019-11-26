@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import {AbstractControl, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -17,13 +18,20 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./register-page.component.css']
 })
 export class RegisterPageComponent implements OnInit {
-  genders: string [] = ['MALE', 'FEMALE', 'OTHER', 'UNKNOWN'];
+  genders = [
+    {name: 'Мужчина', value: 'MALE'},
+    {name: 'Женщина', value: 'FEMALE'},
+    {name: 'Другое', value: 'OTHER'},
+    {name: 'Неизвестно', value: 'UNKNOWN'}
+  ];
   form: FormGroup;
   matcher = new MyErrorStateMatcher();
 
 
   constructor(private auth: AuthService,
-              private router: Router) {
+              private router: Router,
+              private route: ActivatedRoute,
+              private matSnackBar:MatSnackBar) {
   }
 
   ngOnInit() {
@@ -36,11 +44,17 @@ export class RegisterPageComponent implements OnInit {
         password2: new FormControl(null, [Validators.required])
       }, this.passwordValidator),
       profile: new FormGroup({
-      name: new FormControl(null, [Validators.required]),
-      surname: new FormControl(),
-      age: new FormControl(null, [Validators.required]),
-      sex: new FormControl(null, [Validators.required])})
+        name: new FormControl(null, [Validators.required]),
+        surname: new FormControl(),
+        age: new FormControl(null, [Validators.required]),
+        sex: new FormControl(null, [Validators.required])
+      })
     });
+    this.route.queryParams.subscribe((params: Params) =>{
+      if (params['EmailError']){
+        this.matSnackBar.open('Пользователь с таким Email уже зарегистрирован')
+      }
+    } )
     // });
 
   }
@@ -48,8 +62,8 @@ export class RegisterPageComponent implements OnInit {
   passwordValidator(control: FormGroup): any {
     const pass = control.controls.password1.value;
     const confirmPass = control.controls.password2.value;
-    console.log(pass);
-    console.log(confirmPass);
+    // console.log(pass);
+    // console.log(confirmPass);
 
     return pass === confirmPass ? null : {notSame: true};
   }
@@ -61,8 +75,18 @@ export class RegisterPageComponent implements OnInit {
     this.form.addControl('password', new FormControl(password));
     // console.log(this.form.value);
     this.auth.register(this.form.value).subscribe((res) => {
-      console.log(res);
-      this.router.navigate(['/login']);
+      // console.log(res);
+      this.router.navigate(['/login'], {
+        queryParams: {
+          registered: true
+        }
+      });
+    },()=>{
+      this.router.navigate(['register'],{
+        queryParams:{
+          EmailError: true
+        }
+      })
     });
     // console.log(this.form);
   }

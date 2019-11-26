@@ -1,5 +1,5 @@
 <mat-card class="registerForm">
-  <mat-card-title>Register</mat-card-title>
+  <mat-card-title>Регистрация</mat-card-title>
 
   <mat-card-content fxLayoutAlign="center center">
     <form [formGroup]="form">
@@ -12,17 +12,15 @@
 
         <div formGroupName="passwords" fxLayout="column">
           <mat-form-field appearance="outline">
-            <mat-label>Password</mat-label>
+            <mat-label>Пароль</mat-label>
             <input matInput type="password" required formControlName="password1">
-            <mat-error>Min 6 characters</mat-error>
+            <mat-error>Минимум 6 символов</mat-error>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>Password again</mat-label>
+            <mat-label>Ещё раз</mat-label>
             <input matInput type="password" required [errorStateMatcher]="matcher" formControlName="password2">
-            <mat-error *ngIf="(form.hasError('notSame', 'passwords'))">The password and confirm password
-              fields do not
-              match.
+            <mat-error *ngIf="(form.hasError('notSame', 'passwords'))">Пароли не совпадают.
             </mat-error>
           </mat-form-field>
         </div>
@@ -31,24 +29,24 @@
       <div formGroupName="profile">
         <div fxLayout="row" fxLayout.lt-md="column">
           <mat-form-field appearance="outline" class="fields">
-            <mat-label>Name</mat-label>
+            <mat-label>Имя</mat-label>
             <input matInput required formControlName="name">
           </mat-form-field>
           <mat-form-field appearance="outline" class="fields">
-            <mat-label>Surname</mat-label>
+            <mat-label>Фамилия</mat-label>
             <input matInput formControlName="surname">
           </mat-form-field>
           <mat-form-field fxLayoutAlign="center" appearance="outline">
-            <mat-label>Age</mat-label>
+            <mat-label>Возраст</mat-label>
             <input matInput type="number" formControlName="age">
           </mat-form-field>
         </div>
 
         <mat-form-field appearance="outline" fxLayoutAlign="center" class="fields">
-          <mat-label>Gender</mat-label>
+          <mat-label>Пол</mat-label>
           <mat-select formControlName="sex">
-            <mat-option *ngFor="let gender of genders" [value]="gender">
-              {{gender}}
+            <mat-option *ngFor="let gender of genders" [value]="gender.value">
+              {{gender.name}}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -57,6 +55,6 @@
   </mat-card-content>
 
   <mat-card-actions align="end">
-    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="register()">Register</button>
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="register()">Зарегистрировать</button>
   </mat-card-actions>
 </mat-card>
