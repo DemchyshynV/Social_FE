@@ -1,0 +1,24 @@
+<mat-sidenav-container class="container" *ngIf="senders$ | async as senders">
+  <mat-sidenav class="sidenav" mode="side" opened>
+    <div class="buttons">
+      <div>
+        <mat-card *ngFor="let sender of senders" class="list">
+          <img [src]="sender.avatar" *ngIf="sender.avatar else blank">
+          <button mat-button (click)="getBody(sender.id)">
+            <div class="profile">
+              <div class="name">{{sender.name}} {{sender.surname}}</div>
+            </div>
+
+            <ng-template #blank>
+              <img [src]="siteLayoutService.avatarBlank">
+            </ng-template>
+          </button>
+        </mat-card>
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-body *ngIf="body.length>0" [body]="body" [targetId]="targetId"></app-body>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -23,6 +23,7 @@ import {LoaderComponent} from './shared/components/loader/loader.component';
 import {MyRequestsComponent} from './friends-page/top/my-requests/my-requests.component';
 import {FriendsRequestComponent} from './friends-page/top/friends-request/friends-request.component';
 import {MassagePageComponent} from './massage-page/massage-page.component';
+import { BodyComponent } from './massage-page/body/body.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {MassagePageComponent} from './massage-page/massage-page.component';
     MyRequestsComponent,
     FriendsRequestComponent,
     MassagePageComponent,
+    BodyComponent,
   ],
   imports: [
     BrowserModule,

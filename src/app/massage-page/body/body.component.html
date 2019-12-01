@@ -1,0 +1,16 @@
+<div #scrollMe [scrollTop]="scrollMe.scrollHeight" class="chat">
+  <mat-card *ngFor="let bod of body" [ngClass]="{right: bod.me}">{{bod.body}}</mat-card>
+</div>
+  <div class="send">
+    <form [formGroup]="form" >
+
+        <mat-form-field appearance="outline" fxLayout="row" class="msg" fxLayoutAlign="center" fxLayout="column">
+          <mat-label>Сообщение</mat-label>
+          <input matInput type="text" formControlName="message" required>
+        </mat-form-field>
+<!--          <input  type="number" formControlName="id"   hidden>-->
+        <mat-card-actions class="button">
+          <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="send()">Отправить</button>
+        </mat-card-actions>
+    </form>
+  </div>

@@ -10,10 +10,10 @@ export class FriendService {
 
   constructor(private http: HttpClient) { }
   findFriends():Observable<Friends[]>{
-    return this.http.get<Friends[]>('/api/friends/findFriends');
+    return this.http.get<Friends[]>('/api/friends/getAll');
   }
   save(id:bigint):Observable<any>{
-    return this.http.post<any>('/api/friends/save', id);
+    return this.http.get<any>('/api/friends/save/'+ id);
   }
   myFriends():Observable<Friends[]>{
     return this.http.get<Friends[]>('/api/friends/myFriends');
@@ -28,6 +28,6 @@ export class FriendService {
 
   friendsRequest():Observable<Friends[]> {
     return this.http.get<Friends[]>('/api/friends/friendsRequest');
-    
+
   }
 }

@@ -12,12 +12,12 @@ export class SiteLayoutService {
   }
 
   getProfile(): Observable<Profile> {
-    return this.http.get<Profile>('/api/profile');
+    return this.http.get<Profile>('/api/getProfile');
   }
 
   setAvatar(file: File): Observable<Profile> {
     let formData = new FormData();
-    formData.append('file', file, file.name)
+    formData.append('file', file, file.name);
     return this.http.post<Profile>( '/api/profile/avatar', formData);
   }
 

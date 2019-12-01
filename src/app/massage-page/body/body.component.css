@@ -1,0 +1,54 @@
+.right {
+  text-align: end;
+  color: #3f51b5;
+}
+
+mat-card {
+  color: black;
+}
+
+.scroll {
+  overflow-y: scroll;
+}
+
+.chat {
+  list-style: none;
+  background: none;
+  margin: 0;
+  /*padding: 0;*/
+  position: absolute;
+  top: 0;
+  height: 85%;
+  width: 100%;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  /*overflow-y: scroll;*/
+  /*padding-right: 17px;*/
+
+}
+
+.chat::-webkit-scrollbar {
+  display: none;
+}
+
+.send {
+  position: absolute;
+  /*bottom: 0;*/
+  margin: auto 0;
+  padding: 0;
+  top:85%;
+  /*height: 0px;*/
+  width: 80%;
+  /*display: inline-block;*/
+  /*display: flex;*/
+  /*justify-content: end;*/
+  /*justify-content: end;*/
+}
+.button{
+  position: absolute;
+  top: 8px;
+  right: -1vmax;
+  width: 10px;
+  bottom: 0;
+}
+
