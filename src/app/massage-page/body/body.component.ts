@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Body} from "../../shared/interfaces";
 import {FormControl, FormGroup} from "@angular/forms";
 import {MessageService} from "../../services/message.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-body',
@@ -12,9 +13,8 @@ export class BodyComponent implements OnInit {
   @Input() body: Body[];
   private form: FormGroup;
   @Input() targetId: bigint;
-  private result:Body;
 
-  constructor(private messageService:MessageService) {
+  constructor(private messageService:MessageService, private router:Router) {
   }
 
   ngOnInit() {
@@ -27,6 +27,8 @@ export class BodyComponent implements OnInit {
   send() {
     // console.log(this.form.value);
     this.messageService.addMessage(this.form.value.message, this.targetId).subscribe(() => {
+      this.ngOnInit()
+
       this.form.reset();
 
     })

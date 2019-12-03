@@ -27,4 +27,9 @@ export interface Body {
   body: string;
 
 }
+export interface Photo {
+  id:bigint,
+  url:string
+
+}
 

@@ -14,6 +14,7 @@ import {FindFriendsComponent} from "./friends-page/top/find-friends/find-friends
 import {MyRequestsComponent} from "./friends-page/top/my-requests/my-requests.component";
 import {FriendsRequestComponent} from "./friends-page/top/friends-request/friends-request.component";
 import {MassagePageComponent} from "./massage-page/massage-page.component";
+import {PhotosPageComponent} from "./photos-page/photos-page.component";
 
 
 const routes: Routes = [
@@ -36,7 +37,8 @@ const routes: Routes = [
                 {path: 'friendsRequest', component: FriendsRequestComponent}
               ]}
           ]},
-        {path: 'massages', component: MassagePageComponent}
+        {path: 'massages', component: MassagePageComponent},
+        {path: 'photos', component: PhotosPageComponent}
       ]
     },
     {

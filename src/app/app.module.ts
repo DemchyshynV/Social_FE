@@ -24,6 +24,7 @@ import {MyRequestsComponent} from './friends-page/top/my-requests/my-requests.co
 import {FriendsRequestComponent} from './friends-page/top/friends-request/friends-request.component';
 import {MassagePageComponent} from './massage-page/massage-page.component';
 import { BodyComponent } from './massage-page/body/body.component';
+import { PhotosPageComponent } from './photos-page/photos-page.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { BodyComponent } from './massage-page/body/body.component';
     FriendsRequestComponent,
     MassagePageComponent,
     BodyComponent,
+    PhotosPageComponent,
   ],
   imports: [
     BrowserModule,
