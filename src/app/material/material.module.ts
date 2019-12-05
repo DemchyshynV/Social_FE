@@ -8,6 +8,7 @@ import {
   MatToolbarModule
 } from "@angular/material";
 import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatDialogModule} from "@angular/material/dialog";
 
 const Materials = [
   MatToolbarModule,
@@ -19,7 +20,8 @@ const Materials = [
   MatGridListModule,
   MatSidenavModule,
   MatProgressSpinnerModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatDialogModule
 ]
 
 @NgModule({

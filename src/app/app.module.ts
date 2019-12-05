@@ -25,6 +25,7 @@ import {FriendsRequestComponent} from './friends-page/top/friends-request/friend
 import {MassagePageComponent} from './massage-page/massage-page.component';
 import { BodyComponent } from './massage-page/body/body.component';
 import { PhotosPageComponent } from './photos-page/photos-page.component';
+import { CarouselComponent } from './photos-page/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { PhotosPageComponent } from './photos-page/photos-page.component';
     MassagePageComponent,
     BodyComponent,
     PhotosPageComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +59,7 @@ import { PhotosPageComponent } from './photos-page/photos-page.component';
     ReactiveFormsModule
 
   ],
+  entryComponents:[CarouselComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

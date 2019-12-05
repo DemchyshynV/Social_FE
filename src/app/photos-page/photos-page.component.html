@@ -1,0 +1,8 @@
+<form [formGroup]="form" enctype="multipart/form-data">
+  <input type="file" class="dn" #input formControlName="file" (change)="onFileUpload($event)">
+    <button mat-raised-button (click)="trigerClick()">Добавить фото</button>
+
+</form>
+  <div class="container">
+    <img class="photo" *ngFor="let l  of list" [src]="l.url" (click)="zoom(list.indexOf(l))">
+  </div>

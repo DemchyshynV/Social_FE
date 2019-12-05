@@ -27,7 +27,6 @@ export class BodyComponent implements OnInit {
   send() {
     // console.log(this.form.value);
     this.messageService.addMessage(this.form.value.message, this.targetId).subscribe(() => {
-      this.ngOnInit()
 
       this.form.reset();
 
