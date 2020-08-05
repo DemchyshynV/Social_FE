@@ -14,6 +14,7 @@ export interface Friends {
   surname: string;
 
 }
+
 export interface Senders {
   id: bigint;
   avatar?: string;
@@ -21,15 +22,17 @@ export interface Senders {
   surname: string;
 
 }
+
 export interface Body {
   id: bigint;
   me: boolean;
   body: string;
 
 }
+
 export interface Photo {
-  id:bigint,
-  url:string
+  id: bigint;
+  url: string;
 
 }
 

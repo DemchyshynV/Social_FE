@@ -6,6 +6,7 @@
       <div class="name">{{friend.name}} {{friend.surname}}</div>
     </div>
     <div class="buttons">
+      <button mat-raised-button (click)="message(friend)">Сообщение</button>
       <button mat-raised-button (click)="del(friend)">Удалить из друзей</button>
     </div>
     <ng-template #blank>

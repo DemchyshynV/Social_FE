@@ -1,10 +1,10 @@
 import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {PhotoService} from "../services/photo.service";
-import {Photo} from "../shared/interfaces";
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
-import {CarouselComponent} from "./carousel/carousel.component";
-import {absoluteFrom} from "@angular/compiler-cli/src/ngtsc/file_system";
+import {FormControl, FormGroup} from '@angular/forms';
+import {PhotoService} from '../services/photo.service';
+import {Photo} from '../shared/interfaces';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {CarouselComponent} from './carousel/carousel.component';
+import {absoluteFrom} from '@angular/compiler-cli/src/ngtsc/file_system';
 
 @Component({
   selector: 'app-photos-page',
@@ -15,7 +15,7 @@ export class PhotosPageComponent implements OnInit {
   @ViewChild('input', {static: false}) inputRef: ElementRef;
   form: FormGroup;
   fileData: File = null;
-  list: Photo[] = []
+  list: Photo[] = [];
 
   constructor(private photoService: PhotoService, private matDialog: MatDialog) {
   }
@@ -23,8 +23,9 @@ export class PhotosPageComponent implements OnInit {
   ngOnInit() {
     this.form = new FormGroup({
       file: new FormControl(null)
-    })
-    this.photoService.getPhoto().subscribe(value => this.list = value)
+    });
+    this.photoService.getPhoto().subscribe(value => this.list = value);
+
   }
 
   onFileUpload(inputFile: any) {
@@ -35,9 +36,10 @@ export class PhotosPageComponent implements OnInit {
     //   // this.list.push({id: null, url: reader.result.});
     //   console.log(reader.result);
     // };
-    this.photoService.setPhoto(this.fileData).subscribe()
-    this.photoService.getPhoto().subscribe(value => this.list = value)
-    this.ngOnInit()
+    this.photoService.setPhoto(this.fileData).subscribe(value => {
+      this.list.push(value.data);
+    });
+    this.ngOnInit();
   }
 
   trigerClick() {
@@ -46,9 +48,8 @@ export class PhotosPageComponent implements OnInit {
 
   zoom(arrId: number) {
     const dialogRef = this.matDialog.open(CarouselComponent, {
-      width: '80%',
-      height: '80%',
-      data:{url:this.list[arrId].url, id:this.list[arrId].id}
+      panelClass: 'custom-dialog-container',
+      data: {urls: this.list, index: arrId}
     });
 
   }

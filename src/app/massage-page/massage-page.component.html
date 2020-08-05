@@ -1,4 +1,4 @@
-<mat-sidenav-container class="container" *ngIf="senders$ | async as senders">
+<mat-sidenav-container class="container" *ngIf="senders">
   <mat-sidenav class="sidenav" mode="side" opened>
     <div class="buttons">
       <div>
@@ -18,7 +18,7 @@
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-body *ngIf="body.length>0" [body]="body" [targetId]="targetId"></app-body>
+    <app-body *ngIf="senders.length>0" [body]="body" [targetId]="targetId"></app-body>
 
   </mat-sidenav-content>
 </mat-sidenav-container>

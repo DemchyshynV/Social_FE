@@ -1,3 +1,11 @@
-<div mat-dialog-content class="con">
-  <img [src]="data.url" class="img">
+<div class="con">
+  <div *ngFor="let url of data.urls" class="img">
+    <img src="{{url.url}}" alt="" height="100">
+  </div>
+
+  <div class="buttons">
+    <div (click)="left()"><</div>
+    <div (click)="right()">></div>
+  </div>
 </div>
+

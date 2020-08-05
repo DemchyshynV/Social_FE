@@ -15,7 +15,10 @@ export class FindFriendsComponent implements OnInit {
 
   ngOnInit() {
     // this.friends$ = this.friendService.find();
-    this.friendService.findFriends().subscribe(value => this.friends = value)
+    this.friendService.findFriends().subscribe(value => {
+      console.log(value);
+      this.friends = value;
+    })
   }
   save(friend:Friends){
     this.friendService.save(friend.id).subscribe();

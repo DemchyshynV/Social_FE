@@ -21,7 +21,7 @@ export class SiteLayoutComponent implements OnInit {
   links = [
     {url: '/photos', name: 'Фото', notify: ''},
     {url: '/music', name: 'Музыка', notify: ''},
-    {url: '/settings', name: 'Настройки', notify: ''}
+    // {url: '/settings', name: 'Настройки', notify: ''}
 
   ];
   massageFlag: boolean = true;
